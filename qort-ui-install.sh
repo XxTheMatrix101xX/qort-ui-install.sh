@@ -70,12 +70,12 @@ function process_full_install()
   sudo yarn install 
   sudo yarn unlink 
   sudo yarn link
-  echo -e 'FIXING main.js COMMENT ISSUE'
-  cd plugins/core
-  sudo sed -i '21s/.*/    fetch(url).then(res => console.log(res))/' main.src.js
-  echo -e 'FIXED FOREVER'
-  cd ../../../frag-qortal-crypto
-  #cd ../frag-qortal-crypto
+#  echo -e 'FIXING main.js COMMENT ISSUE'
+#  cd plugins/core
+#  sudo sed -i '21s/.*/    fetch(url).then(res => console.log(res))/' main.src.js
+#  echo -e 'FIXED FOREVER'
+#  cd ../../../frag-qortal-crypto
+  cd ../frag-qortal-crypto
   sudo yarn install 
   sudo yarn unlink 
   sudo yarn link
