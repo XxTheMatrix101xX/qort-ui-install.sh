@@ -32,11 +32,11 @@ function process_full_install()
 {
   echo -e '---DOING APT UPDATE FIRST---'
   
-  sudo apt update -qq > /dev/null
+  sudo apt-get update -qq > /dev/null
   
   echo -e '--SETTING UP YARN AND NODE APT SOURCES AND INSTALLING DEPENDENCIES FOR NODE ATTEMPT ONE---'
   
-  sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates -qq > /dev/null
+  sudo apt-get -y install curl dirmngr apt-transport-https lsb-release ca-certificates -qq > /dev/null
   #curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
   echo -e "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list  
@@ -50,13 +50,13 @@ function process_full_install()
   
   sudo echo "deb https://deb.nodesource.com/node_12.x eoan main" | sudo tee /etc/apt/sources.list.d/nodesource.list
   sudo echo 'deb-src https://deb.nodesource.com/node_12.x eoan main' >> /etc/apt/sources.list.d/nodesource.list
-  sudo apt update -qq > /dev/null
+  sudo apt-get update -qq > /dev/null
 #  sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
   curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
   
   echo -e '---INSTALLING DEPENDENCIES!---'
   
-  sudo apt update  -qq > /dev/null
+  sudo apt-get update  -qq > /dev/null
   
   echo -e '---INSTALLING NODE.JS---'
   
@@ -68,17 +68,17 @@ function process_full_install()
   
   echo -e '---INSTALLING NPM AND ZIP/UNZIP---'
   
-  sudo apt -y install npm -qq > /dev/null
-  sudo apt -y install zip -qq > /dev/null
-  sudo apt -y install unzip -qq > /dev/null
+  sudo apt-get -y install npm -qq > /dev/null
+  sudo apt-get -y install zip -qq > /dev/null
+  sudo apt-get -y install unzip -qq > /dev/null
   
   echo -e '---INSTALLING GIT---'
   
-  sudo apt -y install git -qq > /dev/null
+  sudo apt-get -y install git -qq > /dev/null
   
   echo -e '---CLONING ALL UI REPOSITORIES---'
   
-  sudo git clone https://github.com/QORT/qortal-ui && sudo git clone https://github.com/QORT/qortal-default-plugins && sudo git clone https://github.com/QORT/qortal-ui-core && sudo git clone https://github.com/QORT/qortal-ui-crypto
+  sudo git clone https://github.com/QORT/qortal-ui && sudo git clone https://github.com/QORT/qortal-ui-plugins && sudo git clone https://github.com/QORT/qortal-ui-core && sudo git clone https://github.com/QORT/qortal-ui-crypto
   
   echo -e '---EXECUTING ALL PRE-BUILD TASKS---'
   
@@ -86,7 +86,7 @@ function process_full_install()
   sudo yarn install 
   sudo yarn unlink 
   sudo yarn link 
-  cd ../qortal-default-plugins
+  cd ../qortal-ui-plugins
   sudo yarn install 
   sudo yarn unlink 
   sudo yarn link
@@ -101,7 +101,7 @@ function process_full_install()
   sudo yarn link
   cd ../qortal-ui 
   sudo yarn link @frag-crypto/qortal-ui-core 
-  sudo yarn link @frag-crypto/qortal-default-plugins 
+  sudo yarn link @frag-crypto/qortal-ui-plugins 
   sudo yarn link @frag-crypto/qortal-qortal-crypto
   
   echo -e '---BUILDING UI SERVER THEN RUNNING IN THIS TERMINAL WINDOW - KEEP WINDOW OPEN!---'
