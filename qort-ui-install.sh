@@ -102,7 +102,7 @@ function process_full_install()
   cd ../qortal-ui 
   sudo yarn link @frag-crypto/qortal-ui-core 
   sudo yarn link @frag-crypto/qortal-ui-plugins 
-  sudo yarn link @frag-crypto/qortal-qortal-crypto
+  sudo yarn link @frag-crypto/qortal-ui-crypto
   
   echo -e '---BUILDING UI SERVER THEN RUNNING IN THIS TERMINAL WINDOW - KEEP WINDOW OPEN!---'
   
